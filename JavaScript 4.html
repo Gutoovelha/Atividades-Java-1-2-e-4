@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Lista de Exercícios – JavaScript 4</h1>
+<hr>
+<!-- Exerc1 -->
+<h2>Exercício 1 - Nome e número de gols</h2>
+
+<label>Nome do time 1: </label>
+<input type="text" id="ex11"><br>
+<label>Número de gols: </label>
+<input type="number" id="ex112" min="0"><br><br>
+
+<label>Nome do time 2: </label>
+<input type="text" id="ex12"><br>
+<label>Número de gols: </label>
+<input type="number" id="ex122" min="0"><br>
+<p id="r1"></p>
+<button onclick="exerc1()">Calcular</button>
+<hr>
+
+<!-- Exerc2 -->
+<h2>Exercício 2 - Estado de uma pessoa</h2>
+
+<label>Sigla do estado: </label>
+<input type="text" id="ex2"><br>
+<p id="r2"></p>
+<button onclick="exerc2()">Consultar</button>
+<hr>
+
+<!-- Exerc3 -->
+<h2>Exercício 3 - Mês correspondente.</h2>
+
+<label>Número do mês: </label>
+<input type="number" id="ex3" min="1" max="12"><br>
+<p id="r3"></p>
+<button onclick="exerc3()">Consultar</button>
+<hr>
+
+<!-- Exerc4 -->
+<h2>Exercício 4 - Vender com lucro</h2>
+
+<label>Valor da compra: </label>
+<input type="number" id="ex4" min="0"><br>
+<p id="r4"></p>
+<button onclick="exerc4()">Calcular</button>
+<hr>
+
+<!-- Exerc5 -->
+<h2>Exercício 5 - “APROVADO” ou “REPROVADO”</h2>
+
+<label>Nota 1: </label>
+<input type="number" id="ex5" min="0" max="10"><br>
+
+<label>Nota 2: </label>
+<input type="number" id="ex52" min="0" max="10"><br>
+
+<p id="r5"></p>
+<button onclick="exerc5()">Calcular</button>
+<hr>
+
+<!-- Exerc6 -->
+<h2>Exercício 6 - Salário atual funcionário e índice de aumento</h2>
+
+<label>Salário: </label>
+<input type="number" id="ex6" min="0"><br>
+<p id="r6"></p>
+<button onclick="exerc6()">Calcular</button>
+<hr>
+
+<!-- Exerc7 -->
+<h2>Exercício 7 - Entrada de um valor de 1 a 4</h2>
+<label>Valor de 1 a 4: </label>
+<input type="number" id="ex7" min="0"><br>
+
+<label>Valor 1: </label>
+<input type="number" id="ex72" min="0"><br>
+
+<label>Valor 2: </label>
+<input type="number" id="ex73" min="0"><br>
+
+<p id="r7"></p>
+<button onclick="exerc7()">Calcular</button>
+<hr>
+
+<!-- Exerc8 -->
+<h2>Exercício 8 - Leia valores inteiros em duas variáveis distintas</h2>
+<label>Valor 1: </label>
+<input type="number" id="ex8" min="0"><br>
+
+<label>Valor 2: </label>
+<input type="number" id="ex82" min="0"><br>
+
+<p id="r8"></p>
+<button onclick="exerc8()">Calcular</button>
+<hr>
+
+<!-- Exerc9 -->
+<h2>Exercício 9 - Idades de 2 homens e 2 mulheres</h2>
+<label>Idade homem 1: </label>
+<input type="number" id="ex9" min="0"><br>
+
+<label>Idade homem 2: </label>
+<input type="number" id="ex92" min="0"><br><br>
+
+<label>Idade mulher 1: </label>
+<input type="number" id="ex93" min="0"><br>
+
+<label>Idade mulher 2: </label>
+<input type="number" id="ex94" min="0"><br>
+
+<p id="r9"></p>
+<button onclick="exerc9()">Calcular</button>
+
+<script>
+function exerc1(){
+    var nomet1= document.getElementById('ex11').value;
+    var golst1= document.getElementById('ex112').value;
+    var nomet2= document.getElementById('ex12').value;
+    var golst2= document.getElementById('ex122').value;
+
+   if (golst1==golst2){
+    return document.getElementById('r1').innerHTML = "Empate";}
+
+    if (golst1>golst2){
+    return document.getElementById('r1').innerHTML = "Vencedor: "+nomet1;}
+    
+    if (golst1<golst2){
+    return document.getElementById('r1').innerHTML = "Vencedor: "+ nomet2;}
+};
+
+function exerc2(){ 
+    var sigla= document.getElementById('ex2').value;
+    var sigla= sigla.toLowerCase();
+
+    if (sigla.localeCompare("rj")==0){
+        return document.getElementById('r2').innerHTML = "Carioca";}
+
+    if (sigla.localeCompare("sp")==0){
+        return document.getElementById('r2').innerHTML = "Paulista";}
+
+    if (sigla.localeCompare("mg")==0){
+    return document.getElementById('r2').innerHTML = "Mineiro";}
+
+    else {return document.getElementById('r2').innerHTML = "Outros";}
+};
+
+function exerc3(){
+    var nmes= document.getElementById('ex3').value;
+    var meses= ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+
+    if (nmes<1 || nmes>12)
+    {return document.getElementById('r3').innerHTML = "Mês inexistente";}
+
+   else
+    {return document.getElementById('r3').innerHTML = meses[nmes-1];}
+};
+
+function exerc4(){
+    var valor= parseFloat(document.getElementById('ex4').value);
+
+    if (valor<20){
+        var pvenda= valor+(valor*0.45);
+        return document.getElementById('r4').innerHTML = "Valor de venda: R$"+pvenda;
+    }
+
+    else {
+        var pvenda= valor+(valor*0.30);
+        return document.getElementById('r4').innerHTML = "Valor de venda: R$"+pvenda;}
+};
+
+function exerc5(){
+    var nota1= parseFloat(document.getElementById('ex5').value);
+    var nota2= parseFloat(document.getElementById('ex52').value);
+    var media= (nota1+nota2)/2;
+
+    if (media>10 || media<0){
+        return document.getElementById('r5').innerHTML = "Média fora do conjunto possivel de 0 até 10";
+    }
+
+    if (media>=9){
+        return document.getElementById('r5').innerHTML = "Nota 1: "+nota1+"<br>Nota 2: "+nota2+"<br>Média: "+media+"<br>Conceito: A<br>Aprovado";
+    }
+        
+
+    if (media>=7.5){
+        return document.getElementById('r5').innerHTML = "Nota 1: "+nota1+"<br>Nota 2: "+nota2+"<br>Média: "+media+"<br>Conceito: B<br>Aprovado";
+    }
+
+    if (media>=6){
+        return document.getElementById('r5').innerHTML = "Nota 1: "+nota1+"<br>Nota 2: "+nota2+"<br>Média: "+media+"<br>Conceito: C<br>Aprovado";
+    }
+
+    if (media>=4){
+        return document.getElementById('r5').innerHTML = "Nota 1: "+nota1+"<br>Nota 2: "+nota2+"<br>Média: "+media+"<br>Conceito: D<br>Reprovado";
+    }
+
+    if (media>=0){
+        return document.getElementById('r5').innerHTML = "Nota 1: "+nota1+"<br>Nota 2: "+nota2+"<br>Média: "+media+"<br>Conceito: E<br>Reprovado";
+    }
+};
+
+function exerc6(){
+    var salarioInicial= parseFloat(document.getElementById('ex6').value);
+
+    if (salarioInicial<=400){
+        var salarioFinal=salarioInicial+(salarioInicial*(15/100));
+        return document.getElementById('r6').innerHTML = "Índice de aumento: 15%<br>Valor de salário corrigido: R$"+salarioFinal;
+    }
+
+    if (salarioInicial>400 && salarioInicial<=700){
+        var salarioFinal=salarioInicial+(salarioInicial*(12/100));
+        return document.getElementById('r6').innerHTML = "Índice de aumento: 12%<br>Valor de salário corrigido: R$"+salarioFinal;
+    }
+
+    if (salarioInicial>700 && salarioInicial<=1000){
+        var salarioFinal=salarioInicial+(salarioInicial*(10/100));
+        return document.getElementById('r6').innerHTML = "Índice de aumento: 10%<br>Valor de salário corrigido: R$"+salarioFinal;
+    }
+
+    if (salarioInicial>1000 && salarioInicial<=1500){
+        var salarioFinal=salarioInicial+(salarioInicial*(7/100));
+        return document.getElementById('r6').innerHTML = "Índice de aumento: 7%<br>Valor de salário corrigido: R$"+salarioFinal;
+    }
+
+    if (salarioInicial>1500 && salarioInicial<=2000){
+        var salarioFinal=salarioInicial+(salarioInicial*(4/100));
+        return document.getElementById('r6').innerHTML = "Índice de aumento: 4%<br>Valor de salário corrigido: RS"+salarioFinal;
+    }
+};
+
+function exerc7(){
+    var valor1a4= parseFloat(document.getElementById('ex7').value);
+    var valor1= parseFloat(document.getElementById('ex72').value);
+    var valor2= parseFloat(document.getElementById('ex73').value);
+    var valorFinal;
+
+    if (valor1a4==0){
+        var valorFinal=valor1+valor2;
+        return document.getElementById('r7').innerHTML = "Soma do valor 1 e valor 2: "+valorFinal;}
+
+    if (valor1a4==1){
+        var valorFinal=valor1-valor2;
+        return document.getElementById('r7').innerHTML = "Subtração do valor 1 e valor 2: "+valorFinal;}
+
+    if (valor1a4==2){
+        var valorFinal=valor1*valor2;
+        return document.getElementById('r7').innerHTML = "Multiplicação do valor 1 pelo valor 2: "+valorFinal;}
+
+    if (valor1a4==3){
+        var valorFinal=valor1/valor2;
+        return document.getElementById('r7').innerHTML = "Divisão do valor 1 pelo valor 2: "+valorFinal;}
+
+    if (valor1a4==4){
+        var valorFinal=(valor1+valor2)/2;
+        return document.getElementById('r7').innerHTML = "Média do valor 1 e valor 2: "+valorFinal;}
+
+    else {
+        return document.getElementById('r7').innerHTML = "Valor errado. Programa encerrado sem cálculos";    }
+};
+
+function exerc8(){
+    var valor1= parseFloat(document.getElementById('ex8').value);
+    var valor2= parseFloat(document.getElementById('ex82').value);
+    var resto=valor1%valor2;
+    var valorFinal;
+
+    if (resto==1){
+        var valorFinal=valor1+valor2+resto;
+        return document.getElementById('r8').innerHTML="Resto da divisão: "+resto+"<br>Soma do valor 1, valor 2 e resto da divisão: "+valorFinal;}
+
+    if (resto==2){
+        if (valor1%2==0){var valor1="Par";}
+        if (valor1%2!=0){var valor1="Ímpar";}
+        if (valor2%2==0){var valor2="Par";}
+        if (valor2%2!=0){var valor2="Ímpar";}
+
+        return document.getElementById('r8').innerHTML="Resto da divisão: "+resto+"<br>Valor 1: "+valor1+"<br>Valor 2: "+valor2;}
+
+    if (resto==3){
+        var valorFinal=(valor1+valor2)*valor1;
+        return document.getElementById('r8').innerHTML="Resto da divisão: "+resto+"<br>Multiplicação da soma dos valores pelo valor 1: "+valorFinal;}
+
+    if (resto==4){
+        if (valor2!=0){
+        var valorFinal=(valor1+valor2)/valor2;
+        return document.getElementById('r8').innerHTML="Resto da divisão: "+resto+"<br>Divisão da soma dos valores pelo valor 2: "+valorFinal;}
+
+        var valor1=Math.pow(valor1, 2);
+        var valor2=Math.pow(valor2, 2);
+        return document.getElementById('r8').innerHTML="Resto da divisão: "+resto+"<br>Quadrado do valor 1: "+valor1+"<br>Quadrado do valor 2: "+valor2;
+    }
+
+    else{
+        var valor1=Math.pow(valor1, 2);
+        var valor2=Math.pow(valor2, 2);
+        return document.getElementById('r8').innerHTML="Resto da divisão: "+resto+"<br>Quadrado do valor 1: "+valor1+"<br>Quadrado do valor 2: "+valor2;}
+}
+
+function exerc9(){
+    var idadeH1= parseFloat(document.getElementById('ex9').value);
+    var idadeH2= parseFloat(document.getElementById('ex92').value);
+    var idadeM1= parseFloat(document.getElementById('ex93').value);
+    var idadeM2= parseFloat(document.getElementById('ex94').value);
+    var homemV,homemN,mulherV,mulherN, idadeHVeMN, idadeHNeMV;
+
+    if (idadeH1>idadeH2){var homemV=idadeM1; var homemN=idadeH2;}
+    else {var homemV=idadeH2; var homemN=idadeH1;}
+
+    if (idadeM1>idadeM2){var mulherV=idadeM1; var mulherN=idadeM2;}
+    else {var mulherV=idadeM2; var mulherN=idadeM1;}
+
+    var idadeHVeMN= homemV+mulherN;
+    var idadeHNeMV= homemN*mulherV;
+    return document.getElementById('r9').innerHTML = "Soma das idades do homem mais velho com a mulhar mais nova: "+idadeHVeMN+"<br>Produto das idades do homem mais novo com a mulher mais velha: "+idadeHNeMV;
+}
+</script>
+
+</body>
+</html>

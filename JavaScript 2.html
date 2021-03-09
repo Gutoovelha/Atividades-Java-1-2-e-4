@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Lista de Exercícios – JavaScript 2</h1>
+<hr>
+<!-- Exerc1 -->
+<h2>Exercício 1 - Livros/mês</h2>
+
+<label>Livros lidos: </label>
+<input type="number" id="ex1" min="0"><br>
+<label>Meses desde o primeiro livro: </label>
+<input type="number" id="ex12" min="0"><br>
+
+<p id="r1"></p>
+<button onclick="exerc1()">Calcular</button>
+<hr>
+
+<!-- Exerc2 -->
+<h2>Exercício 2 - Subir de nível</h2>
+
+<label>Monstros eliminados: </label>
+<input type="number" id="ex2" min="0"><br>
+
+<p id="r2"></p>
+<button onclick="exerc2()">Calcular</button>
+<hr>
+
+<!-- Exerc3 -->
+<h2>Exercício 3 - Metaleiros of Metal</h2>
+
+<label>Número de pessoas: </label>
+<input type="number" id="ex3" min="0"><br>
+
+<p id="r3"></p>
+<button onclick="exerc3()">Calcular</button>
+<hr>
+
+<!-- Exerc4 -->
+<h2>Exercício 4 - Vendas por mês</h2>
+
+<label>Vendas realizadas: </label>
+<input type="number" id="ex4" min="0"><br>
+
+<p id="r4"></p>
+<button onclick="exerc4()">Calcular</button>
+<hr>
+
+<!-- Exerc5 -->
+<h2>Exercício 5 - Cliques necessários para o valor</h2>
+
+<label>Valor desejado: </label>
+<input type="number" id="ex5" min="0"><br>
+
+<p id="r5"></p>
+<button onclick="exerc5()">Calcular</button>
+<hr>
+
+<!-- Exerc6 -->
+<h2>Exercício 6 - Distância e tempo dos passos</h2>
+<p>Distância até a escola: 3km</p>
+
+<label>Tempo até chegar: </label>
+<input type="number" id="ex6" min="0"><br>
+<label>Número de passos: </label>
+<input type="number" id="ex62" min="0"><br>
+
+<p id="r6"></p>
+<button onclick="exerc6()">Calcular</button>
+<hr>
+
+<!-- Exerc7 -->
+<h2>Exercício 7 - Inverter nomes</h2>
+
+<label>Nome do usuário 1: </label>
+<input type="text" id="ex7"><br>
+<label>Nome do usuário 2: </label>
+<input type="text" id="ex72"><br>
+
+<p id="r7"></p>
+<button onclick="exerc7()">Inverter</button>
+<hr>
+
+<!-- Exerc8 -->
+<h2>Exercício 8 - Horas de vida</h2>
+
+<label>Anos de vida: </label>
+<input type="number" id="ex8" min="0"><br>
+
+<p id="r8"></p>
+<button onclick="exerc8()">Calcular</button>
+
+<script>
+function exerc1(){
+    var nLivros=document.getElementById('ex1').value;
+    var nMeses=document.getElementById('ex12').value;
+    if (nLivros==0){
+        return document.getElementById('r1').innerHTML = "Você não leu nada";}
+
+    if (nMeses==0){
+        return document.getElementById('r1').innerHTML = "Você leu: "+nLivros+" livros esse mês";}
+
+    var livrosMes=nLivros/nMeses;
+    return document.getElementById('r1').innerHTML = "Você lê: "+livrosMes+" livro(s) por mês";
+};
+
+function exerc2(){
+    var nMonstros=document.getElementById('ex2').value;
+    var nNiveis=Math.floor(nMonstros/150);
+
+    return document.getElementById('r2').innerHTML = "Você é nível: "+nNiveis;
+};
+
+function exerc3(){
+    var nPessoas=document.getElementById('ex3').value;
+    var nMusicas=Math.floor(nPessoas/1200);
+
+    return document.getElementById('r3').innerHTML = "A banda tocará: "+nMusicas+" música(s)";
+};
+
+function exerc4(){
+    var nVendas=document.getElementById('ex4').value;
+    var vTotal=500+(nVendas*50);
+
+    return document.getElementById('r4').innerHTML = "O valor recebido total será: R$"+vTotal;
+};
+
+function exerc5(){
+    var vDesejado=document.getElementById('ex5').value;
+    var nCLiques=vDesejado/0.02;
+
+    return document.getElementById('r5').innerHTML = "Serão necessários: "+nCLiques+" cliques para o valor desejado";
+};
+
+function exerc6(){
+    var tmpEscola=document.getElementById('ex6').value;
+    var nPassos=document.getElementById('ex62').value;
+
+    var dMediaP=(3*1000*100)/nPassos;
+    var tmpPasso=tmpEscola/dMediaP;
+
+    return document.getElementById('r6').innerHTML = "Distância média em cm dos passos: "+dMediaP+"<br> Tempo médio de cada passo: "+tmpPasso;
+};
+
+function exerc7(){
+    var nome1=document.getElementById('ex7').value;
+    var nome2=document.getElementById('ex72').value;
+    var nomes= [nome1,nome2];
+
+    /* [array.legth-1] para que seja contado o número de elementos no array menos um. Ou seja, o último elemento */
+    var nome1= nomes[nomes.length-1];
+    var nome2= nomes[0];
+
+    return document.getElementById('r7').innerHTML = "Nome 1: "+nome1+"<br> Nome 2: "+nome2;
+};
+
+function exerc8(){
+    var anos=document.getElementById('ex8').value;
+    var hrsdeVida=anos*365*24;
+
+    return document.getElementById('r8').innerHTML = "Você viveu aproximadamente: "+hrsdeVida+" hrs";
+};
+</script>
+
+</body>
+</html>
+
+<!-- document.getElementById('r5').innerHTML = ""; -->
+<!-- var x=document.getElementById('ex5').value; -->
