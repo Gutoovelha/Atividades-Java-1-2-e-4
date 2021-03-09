@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Lista de Exercícios – JavaScript 1</h1>
+<hr>
+<!-- Exerc1 -->
+<h2>Exercício 1 - Proposta Ingresso</h2>
+<p>Valor do Ingresso: R$170,00</p>
+
+<label>Proposta: </label>
+<input type="number" id="ex1" min="0"><br>
+<p id="r1"></p>
+<button onclick="exerc1()">Calcular</button>
+<hr>
+
+<!-- Exerc2 -->
+<h2>Exercício 2 - Curtidas Facebook</h2>
+
+<label>Quantidade de dias: </label>
+<input type="number" id="ex2" min=0><br>
+<p id="r2"></p>
+<button onclick="exerc2()">Calcular</button>
+<hr>
+
+<!-- Exerc3 -->
+<h2>Exercício 3 - Tweets por ano</h2>
+
+<label>Número de Tweets por aula: </label>
+<input type="number" id="ex3" min="0"><br>
+<p id="r3"></p>
+<button onclick="exerc3()">Calcular</button>
+<hr>
+
+<!-- Exerc4 -->
+<h2>Exercício 4 - Nota por 100 tweets</h2>
+
+<label>Nota inicial: </label>
+<input type="number" id="ex4" min="0" max="10"><br>
+
+<label>Número de Tweets: </label>
+<input type="number" id="ex42" min="0"><br>
+<p id="r4"></p>
+<button onclick="exerc4()">Calcular</button>
+<hr>
+
+<!-- Exerc5 -->
+<h2>Exercício 5 - Casal dos filmes</h2>
+
+<label>Tempo de sono garoto: </label>
+<input type="number" id="ex5" min="0" step="90"><br>
+
+<label>Tempo de sono garota: </label>
+<input type="number" id="ex52" min="0" step="110"><br>
+
+<p id="r5"></p>
+<button onclick="exerc5()">Calcular</button>
+<hr>
+
+<!-- Exerc6 -->
+<h2>Exercício 6 - Tempo RPG</h2>
+
+<label>Horas diárias: </label>
+<input type="number" id="ex6" min="0" max="24"><br>
+<p id="r6"></p>
+<button onclick="exerc6()">Calcular</button>
+<hr>
+
+<!-- Exerc7 -->
+<h2>Exercício 7 - Valor por saquinho de pipoca</h2>
+<p>Gasto: R$150,00 <br>
+    Meta de lucro: R$350,00 <br>
+    Sacos produzidos: 250</p>
+
+<p id="r7"></p>
+<button onclick="exerc7()">Calcular</button>
+
+<script>
+function exerc1(){
+    var preco=170;
+    var proposta=document.getElementById('ex1').value;
+    var diferenca= preco - proposta;
+    if (proposta>preco){
+        diferenca= diferenca*(-1);
+        return document.getElementById('r1').innerHTML = "Lucrará: R$ "+diferenca;}
+
+        return document.getElementById('r1').innerHTML = "Diferença entre o valor pago e o oferecido é: R$ "+diferenca;
+};
+
+function exerc2(){
+    var nDias=document.getElementById('ex2').value;
+    var curtidas=6*8*nDias;
+
+    return document.getElementById('r2').innerHTML = "O número de curtidas será: "+curtidas+" curtidas";
+};
+
+function exerc3(){
+    var twAula=document.getElementById('ex3').value;
+    var twAno=20*4*twAula;
+
+    return document.getElementById('r3').innerHTML = "O número de tweets anual será: "+twAno;
+};
+
+function exerc4(){
+    var notaAluno=document.getElementById('ex4').value;
+    var nTweets=document.getElementById('ex42').value;
+    if (nTweets<0){
+        return document.getElementById('r4').innerHTML = "Não será descontada nenhuma nota";
+    }
+
+    var cemTweets=Math.trunc(nTweets/100);
+    var notaFinal= notaAluno - cemTweets;
+
+    return document.getElementById('r4').innerHTML = "A nota final será: "+notaFinal;
+};
+
+function exerc5(){
+    var tmpSonoO=document.getElementById('ex5').value;
+    var tmpSonoA=document.getElementById('ex52').value;
+
+    var tmpAcordA=Math.ceil((tmpSonoO/90))*90;
+    var tmpAcordO=Math.ceil((tmpSonoA/110))*110;
+
+    return document.getElementById('r5').innerHTML = "Tempo acordada: "+tmpAcordA+" minutos <br>Tempo acordado: "+tmpAcordO+" minutos";
+};
+
+function exerc6(){
+    var horas=document.getElementById('ex6').value;
+    var tmpConc=78/horas;
+
+    if ((tmpConc-Math.trunc(tmpConc))!=0){
+        var minConc=(tmpConc-Math.trunc(tmpConc))*60
+        var tmpConc=Math.trunc(tmpConc), minConc=Math.trunc(minConc);
+        return document.getElementById('r6').innerHTML = "Você irá demorar: "+tmpConc+" dias e "+minConc+" minutos para concluir o jogo";
+    }
+
+    return document.getElementById('r6').innerHTML = "Você irá demorar: "+tmpConc+" dias para concluir o jogo";
+};
+
+function exerc7(){
+    var lucroF=350, custo=150, nSacos=250;
+    var qntpL=lucroF+custo;
+    var vlrSa=qntpL/nSacos;
+
+    return document.getElementById('r7').innerHTML = "Cada saquinho precisará custar: R$"+vlrSa+" para atingir o lucro de R$350";
+};
+</script>
+
+</body>
+</html>
